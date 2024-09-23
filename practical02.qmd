@@ -1,6 +1,6 @@
 ---
 title: "Getting started with R"
-author: Your name here
+author: Reza Tashakkori
 date: today
 format: html
 ---
@@ -11,7 +11,8 @@ format: html
 
 ```{r}
 # Your answer in code
-
+my_vec <- LETTERS[1:3]
+my_vec
 ```
 > Your answer as text
 
@@ -20,14 +21,15 @@ format: html
 * Assign the vector to a variable `my_letters`
 ```{r}
 # Your answer in code
-
+my_letters <- c("R","e","z","a")
+my_letters
 ```
 
 
 * Check the what happens when you run `letters` (just this) on the command line.
 ```{r}
 # Your answer in code
-
+letters
 ```
 
 > Your answer as text
@@ -37,22 +39,22 @@ format: html
 * What happens when you concatenate two vectors? Add `c(my_letters , my_letters)`
 ```{r}
 # Your answer in code
-
+c(my_letters, my_letters)
 
 ```
 
-> Your answer as text
+> I think it just stick the second vector to end of the first vector
 
 
 
 * Add the number 1 to letters. What happens to the type of the vector?
 ```{r}
 # Your answer in code
-
-
+Added_vec <- c(letters, 1)
+Added_vec
 ```
 
-> Your answer as text
+> The type of number 1 transformed to CHARACTER
 
 
 
@@ -65,13 +67,18 @@ format: html
 
 ```{r}
 # Your answer in code
+my_vec <- 1:8
+new_vec <- my_vec + 2
 
+new_vec
 
+final_vec <- my_vec + c(1:4)
 
-
+final_vec
 
 ```
 
+> ???????????????
 
 
 ### Exercise 3
@@ -96,24 +103,40 @@ format: html
 ```{r}
 # Your answer in code
 
+# 1,2
+A <- matrix(nrow = 3, ncol = 2, data = c(4,9,10,1,5,7))
 
+A
 
+# 3
+dim(A)
 
+# 4
+A[2,2]
 
+# 5
+B <- cbind(A, c(0,0,0))
+A <- B
+A
 
+# 6
+A[1,1] <- 0
+A
+
+#7
+t(A)
 ```
 
 
 8. Are any values in `A` larger than 10? 
 ```{r}
-# Your answer in code
-
+any(A>10)
 ```
 
 9. Are all values in `A` smaller than 10?
 ```{r}
 # Your answer in code
-
+all(A<=10)
 ```
 
 ### Exercise 4
@@ -123,9 +146,11 @@ format: html
 ```{r}
 # Your answer in code
 
+Sum_func <- function(x,y){
+  as.numeric(x) + as.numeric(y)
+}
 
-
-
+Sum_func("23","45")
 
 ```
 
@@ -137,7 +162,16 @@ format: html
 ```{r}
 # Your answer in code
 
+Statistic_Calculator_func <- function(x){
+  
+  cat("Mean, Median and STD would be respectively: ", mean(x),",", median(x),",", sd(x))
+  
+  #return_mean <- mean(x)
+  #return_median <- median(x)
+  #return_std <- sd(x)
+}
 
+Statistic_Calculator_func(c(3,4,5,6,7))
 
 ```
 
@@ -148,7 +182,9 @@ The output of `c('1' , "a", NA, "2", NA)` should be 2.
 
 ```{r}
 # Your answer in code
+x <- c(1,2,NA,"23", "34", NA, NA)
 
+is.na(x) |> sum()
 
 
 ```
